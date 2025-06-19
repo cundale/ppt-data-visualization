@@ -1,0 +1,12 @@
+.graphs_container {
+    flex-grow: 1;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.graphs_container .row {
+    display: flex;
+
+}

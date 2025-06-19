@@ -1,0 +1,113 @@
+.Sidebar {
+    background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  overflow: hidden;
+  transition: background-color 0.3s ease;
+}
+
+@keyframes bounceIn {
+  0% {
+    width: 50px;
+  }
+  60% {
+    width: 220px;
+  }
+  80% {
+    width: 190px;
+  }
+  100% {
+    width: 220px;
+  }
+}
+
+@keyframes bounceOut {
+  0% {
+    width: 220px;
+  }
+  60% {
+    width: 30px;
+  }
+  80% {
+    width: 60px;
+  }
+  100% {
+    width: 50px;
+  }
+}
+
+.Sidebar.sidebar-open {
+  animation: bounceIn 0.4s forwards;
+}
+
+.Sidebar.sidebar-closed {
+  animation: bounceOut 0.4s forwards;
+}
+
+.Sidebar .container {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.Sidebar .filter-title {
+    font-size: 18px;
+    margin: 0;
+    margin-top: 20px;
+    font-weight: 500;
+}
+
+.Sidebar .sidebar-btn {
+    margin-top: 20px;
+    background-color: transparent;
+    border: none;
+    align-self: flex-end;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.Sidebar .sidebar-btn:hover {
+    cursor: pointer;
+}
+
+.Sidebar .sidebar-icon {
+    height: 25px;
+}
+
+.Sidebar #folders-title {
+    margin: 20px 0 0 0;
+}
+
+.Sidebar .folder-label {
+    padding: 3px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.Sidebar .folder-label:hover {
+    background-color: #efefef;
+}
+
+.Sidebar .folder-btn {
+    margin-top: 10px;
+}
+
+
+.Sidebar .date_input {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.Sidebar .slide_range {
+    display: flex;
+    justify-content: center;
+}
+
+
