@@ -64,7 +64,7 @@ const TopTags = ({filtered_data}) => {
           <YAxis type="category" dataKey="text" width={200} />
           <Tooltip />
           <Legend />
-          <Bar dataKey="value" fill="#82ca9d" name="Tag Frequency" />
+          <Bar dataKey="value" fill="#86b6ff" name="Tag Frequency" />
         </BarChart>
       </ResponsiveContainer>
     </div>

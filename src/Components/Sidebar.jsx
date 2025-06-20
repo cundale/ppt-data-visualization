@@ -148,7 +148,7 @@ const Sidebar = ({
             </div>
 
             {/* Slide Range */}
-            <p className="filter-title">Slides</p>
+            <p className="filter-title">Number of Slides</p>
             <div className="slide_range">
               <Box sx={{ width: 150 }}>
                 <Slider

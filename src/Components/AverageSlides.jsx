@@ -1,5 +1,15 @@
 import React from 'react';
-import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer, Legend, LabelList } from 'recharts';
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  Tooltip,
+  CartesianGrid,
+  ResponsiveContainer,
+  Legend,
+  LabelList,
+} from 'recharts';
 
 const AverageSlides = ({ filtered_data, folders }) => {
   // Calculate average slides per folder
@@ -7,7 +17,7 @@ const AverageSlides = ({ filtered_data, folders }) => {
     const filesInFolder = filtered_data.filter((file) =>
       file.pptx_path.startsWith(folder)
     );
-    
+
     const totalSlides = filesInFolder.reduce(
       (acc, file) => acc + file.slide_details.length,
       0
@@ -26,7 +36,7 @@ const AverageSlides = ({ filtered_data, folders }) => {
     <div style={{ width: "100%", height: 500 }} className="graph">
       <h3>Average Slides per Folder</h3>
       <ResponsiveContainer>
-        <BarChart
+        <LineChart
           data={avgSlidesByFolder}
           margin={{ top: 20, right: 20, left: 20, bottom: 40 }}
         >
@@ -50,16 +60,18 @@ const AverageSlides = ({ filtered_data, folders }) => {
             }}
           />
           <Tooltip />
-          <Legend
-            verticalAlign="bottom"
-            align="center"
-            wrapperStyle={{ paddingTop: 40 }}
-          />
-          {/* Bar chart for average slides per folder */}
-          <Bar dataKey="avgSlides" fill="#82ca9d" name="Avg Slides per Folder">
+          <Legend verticalAlign="bottom" align="center" wrapperStyle={{ paddingTop: 40 }} />
+          <Line
+            type="monotone"
+            dataKey="avgSlides"
+            stroke="#4285f4"
+            strokeWidth={3}
+            name="Avg Slides per Folder"
+            activeDot={{ r: 8 }}
+          >
             <LabelList dataKey="avgSlides" position="top" />
-          </Bar>
-        </BarChart>
+          </Line>
+        </LineChart>
       </ResponsiveContainer>
     </div>
   );

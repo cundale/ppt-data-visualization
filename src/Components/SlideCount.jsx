@@ -55,6 +55,8 @@ const SlideCount = ({ filtered_data }) => {
                   value: "Number of PPT Files",
                   angle: -90,
                   position: "insideLeft",
+                  dy: 100, // adjust this value as needed
+                  dx:20,
                 }}
               />
               <Tooltip />
