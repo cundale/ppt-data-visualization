@@ -50,10 +50,6 @@ const Graphs = ({ filtered_data, folders }) => {
           <PPTDistribution filtered_data={filtered_data} folders={folders} />
           <TopTags filtered_data={filtered_data} />
           <SlideCount folders={folders} filtered_data={filtered_data} />
-          {/* <div className="row">
-            <SlidesPerFolder filtered_data={filtered_data} folders={folders} />
-            <AverageSlides filtered_data={filtered_data} folders={folders} />
-          </div> */}
           <SlidesStatsCombined filtered_data={filtered_data} folders={folders} />
           <SlidesVsTags filtered_data={filtered_data} folders={folders} />
           <FolderSummary filtered_data={filtered_data} folders={folders} />

@@ -1,77 +1,63 @@
 import React from 'react';
-import './CSS/Stats.css';
-import { FileText, Folder, Calendar, Tag } from 'lucide-react';
+import "./CSS/Stats.css";
+import { FileText, Calendar, Folder, Tag } from 'lucide-react';
 
 const Stats = ({ filtered_data, folders }) => {
-  // Total Presentations
   const totalPresentations = filtered_data.length;
-
-  // Total Slides
   const totalSlides = filtered_data.reduce((acc, curr) => acc + curr.slide_details.length, 0);
-
-  // Total Folders
   const totalFolders = folders.length;
-
-  // Unique Tags
-  const allTags = filtered_data.flatMap(file => 
+  const allTags = filtered_data.flatMap(file =>
     file.slide_details.flatMap(slide => slide['Tags associated'])
   );
   const uniqueTags = [...new Set(allTags)];
 
+  const statsData = [
+    {
+      title: "Total Presentations",
+      value: totalPresentations,
+      subtitle: "Across all folders",
+      icon: <FileText size={20} />,
+      color: "blue",
+    },
+    {
+      title: "Total Slides",
+      value: totalSlides,
+      subtitle: `~${Math.round(totalSlides / (totalPresentations || 1))} slides per presentation`,
+      icon: <Calendar size={20} />,
+      color: "green",
+    },
+    {
+      title: "Folders",
+      value: totalFolders,
+      subtitle: "Organized collections",
+      icon: <Folder size={20} />,
+      color: "purple",
+    },
+    {
+      title: "Unique Tags",
+      value: uniqueTags.length,
+      subtitle: "Different topics covered",
+      icon: <Tag size={20} />,
+      color: "orange",
+    },
+  ];
+
   return (
     <div className="stats-container">
-      <div className="stat-card">
-        <div className="stat-content">
-          <div>
-            <h3>Total Presentations</h3>
-            <p className="stat-value">{totalPresentations}</p>
-            <p>Across all folders</p>
-          </div>
-          <div className="icon-wrapper blue-bg">
-            <FileText className="stat-icon" />
-          </div>
-        </div>
-      </div>
-
-      <div className="stat-card">
-        <div className="stat-content">
-          <div>
-            <h3>Total Slides</h3>
-            <p className="stat-value">{totalSlides}</p>
-            <p>~{(totalSlides / totalPresentations || 0).toFixed(1)} slides per presentation</p>
-          </div>
-          <div className="icon-wrapper green-bg">
-            <Calendar className="stat-icon" />
+      {statsData.map((item, idx) => (
+        <div className="stat-card" key={idx}>
+          <div className="stat-content">
+            <div>
+              <h4>{item.title}</h4>
+              <h2>{item.value}</h2>
+              <p>{item.subtitle}</p>
+            </div>
+            <div className={`icon-circle ${item.color}`}>
+              {item.icon}
+            </div>
           </div>
         </div>
-      </div>
-
-      <div className="stat-card">
-        <div className="stat-content">
-          <div>
-            <h3>Unique Tags</h3>
-            <p className="stat-value">{uniqueTags.length}</p>
-            <p>Different topics covered</p>
-          </div>
-          <div className="icon-wrapper orange-bg">
-            <Tag className="stat-icon" />
-          </div>
-        </div>
-      </div>
-      
-      <div className="stat-card">
-        <div className="stat-content">
-          <div>
-            <h3>Folders</h3>
-            <p className="stat-value">{totalFolders}</p>
-            <p>Organized collections</p>
-          </div>
-          <div className="icon-wrapper purple-bg">
-            <Folder className="stat-icon" />
-          </div>
-        </div>
-      </div>
-
+      ))}
     </div>
   );
 };

@@ -1,69 +1,91 @@
 .stats-container {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
   gap: 20px;
   padding: 20px;
+  grid-template-columns: repeat(1, 1fr);
+}
+
+
+@media (min-width: 800px) {
+  .stats-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1080px) {
+  .stats-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 .stat-card {
-  flex: 1;
-  background: #fff;
-  border-radius: 10px;
-  padding: 10px 20px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  min-height: 120px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  padding: 20px;
   display: flex;
   align-items: center;
-  transition: transform 0.2s ease;
+  height: 120px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .stat-card:hover {
-  transform: translateY(-3px);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Darker and deeper shadow */
 }
 
+
 .stat-content {
-  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
 }
 
-.stat-value {
-  font-size: 24px;
-  font-weight: 600;
-  margin: 5px 0;
+.stat-content h4 {
+  font-size: 14px;
+  color: #555;
+  margin: 0;
 }
 
-.icon-wrapper {
-  width: 40px;
-  height: 40px;
+.stat-content h2 {
+  font-size: 28px;
+  font-weight: bold;
+  margin: 4px 0;
+  color: #111;
+}
+
+.stat-content p {
+  font-size: 13px;
+  color: #888;
+  margin: 0;
+}
+
+.icon-circle {
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
-.blue-bg {
-  background-color: rgba(0,123,255,0.1);
-  color: #007bff;
+.blue {
+  background-color: #e0ecff;
+  color: #3b82f6;
 }
 
-.green-bg {
-  background-color: rgba(40,167,69,0.1);
-  color: #28a745;
+.green {
+  background-color: #e6f9ec;
+  color: #10b981;
 }
 
-.purple-bg {
-  background-color: rgba(111,66,193,0.1);
-  color: #6f42c1;
+.purple {
+  background-color: #f2e8ff;
+  color: #a855f7;
 }
 
-.orange-bg {
-  background-color: rgba(255,193,7,0.1);
-  color: #ffc107;
-}
-
-.stat-icon {
-  height: 30px;
-  width: 30px;
+.orange {
+  background-color: #fff4e6;
+  color: #f97316;
 }
