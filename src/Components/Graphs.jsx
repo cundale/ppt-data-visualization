@@ -26,6 +26,7 @@ import SlidesVsTags from "./SlidesVsTags";
 import FolderSummary from "./FolderSummary";
 import AverageSlides from "./AverageSlides";
 import SlidesStatsCombined from "./SlidesStatsCombined";
+import Stats from "./Stats";
 
 const Graphs = ({ filtered_data, folders }) => {
   return (
@@ -45,9 +46,10 @@ const Graphs = ({ filtered_data, folders }) => {
         </div>
       ) : (
         <>
-          <SlideCount folders={folders} filtered_data={filtered_data} />
+          <Stats folders={folders} filtered_data={filtered_data} />
           <PPTDistribution filtered_data={filtered_data} folders={folders} />
           <TopTags filtered_data={filtered_data} />
+          <SlideCount folders={folders} filtered_data={filtered_data} />
           {/* <div className="row">
             <SlidesPerFolder filtered_data={filtered_data} folders={folders} />
             <AverageSlides filtered_data={filtered_data} folders={folders} />
